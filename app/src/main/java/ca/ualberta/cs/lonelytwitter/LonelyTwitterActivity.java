@@ -51,6 +51,11 @@ public class LonelyTwitterActivity extends Activity {
 				newestImportantTweet.getMessage();
 				newestImportantTweet.isImportant();
 
+				Mood newHappy = new Happy(theDate);
+				Mood newSad = new Sad(theDate);
+				newestImportantTweet.addMood(newHappy);
+				newestImportantTweet.addMood(newSad);
+
 				String test = newTweet.getMessage();
 
 				ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
