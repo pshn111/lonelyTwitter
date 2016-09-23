@@ -57,6 +57,7 @@ public class LonelyTwitterActivity extends Activity {
 				adapter.notifyDataSetChanged();
 
 				saveInFile();
+				bodyText.setText("");
 			}
 		});
 
@@ -71,6 +72,8 @@ public class LonelyTwitterActivity extends Activity {
 				adapter.notifyDataSetChanged();
 
 				saveInFile();
+				
+
 			}
 		});
 
