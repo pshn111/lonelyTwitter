@@ -1,13 +1,19 @@
 package ca.ualberta.cs.lonelytwitter;
 
+import java.util.Comparator;
 import java.util.Date;
 
 /**
  * Created by watts1 on 9/13/16.
  */
-public abstract class Tweet {
-    private String message;
+public abstract class Tweet  implements Tweetable, Comparable<Tweet> {
+    protected String message;
     private Date date;
+
+
+    public int compareTo(Tweet o1) {
+        return this.getDate().compareTo(o1.getDate());
+    }
 
     public Tweet(String message){
         this.message = message;

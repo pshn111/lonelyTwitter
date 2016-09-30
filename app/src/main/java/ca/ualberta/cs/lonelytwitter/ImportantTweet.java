@@ -14,5 +14,7 @@ public class ImportantTweet extends Tweet{
         return Boolean.TRUE;
     }
 
+    public String getString() { return "This is important !!! " + this.message; }
+
 
 }
