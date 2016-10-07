@@ -113,6 +113,10 @@ public class LonelyTwitterActivity extends Activity {
 
 	}
 
+	/**
+       * Sets up the adapter and refreshes the list whenever the activity is loaded.
+       * @see android.widget.ArrayAdapter
+       */
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -150,6 +154,9 @@ public class LonelyTwitterActivity extends Activity {
 		}
 	}
 
+	/**
+       * Saves tweetList into FILENAME, using Gson
+       */
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
