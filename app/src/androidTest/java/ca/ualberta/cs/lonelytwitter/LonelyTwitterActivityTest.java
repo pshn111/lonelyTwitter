@@ -68,11 +68,14 @@ public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2<
 
         assertTrue(solo.waitForText("New Activity"));
 
-        solo.goBack();
-        solo.assertCurrentActivity("Wrong Activity", LonelyTwitterActivity.class);
+//        solo.goBack();
+//        solo.assertCurrentActivity("Wrong Activity", LonelyTwitterActivity.class);
 
     }
 
+    public void tearDown(){
+        solo.finishOpenedActivities();
+    }
 
 
 }
