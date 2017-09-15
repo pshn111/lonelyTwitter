@@ -40,7 +40,7 @@ public class LonelyTwitterActivity extends Activity {
 			public void onClick(View v) {
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
-				saveInFile(text, new Date(System.currentTimeMillis()));
+
 
 
 				Tweet tweet = new ImportantTweet("");
@@ -51,26 +51,25 @@ public class LonelyTwitterActivity extends Activity {
 					//e.printStackTrace();
 				}
 
-				Tweetable tweet3 = new ImportantTweet("");
+
+
+				Date theDate = new Date();
+
+
+				Mood newHappy = new Happy(theDate);
+				Mood newSad = new Sad(theDate);
+				tweet.addMood(newHappy);
+				tweet.addMood(newSad);
+
+
 				ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
 				tweetList.add(tweet);
 				tweetList.add(tweet1);
 
-				Date theDate = new Date();
-				ImportantTweet newestImportantTweet = new ImportantTweet(text);
-				newestImportantTweet.getMessage();
-				newestImportantTweet.isImportant();
-
-				Mood newHappy = new Happy(theDate);
-				Mood newSad = new Sad(theDate);
-				newestImportantTweet.addMood(newHappy);
-				newestImportantTweet.addMood(newSad);
-
-
-
 				//Log.d("","The isImportant method on tweet returns " + tweet.isImportant());
 				//Log.d("","The isImportant method on tweet returns " + tweet1.isImportant());
-				//finish();
+				saveInFile(text, new Date(System.currentTimeMillis()));
+				finish();
 
 			}
 		});
