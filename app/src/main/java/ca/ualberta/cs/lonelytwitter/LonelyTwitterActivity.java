@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2017Team X, CMPUT301, University of Alberta-All Rights Reserved
+ * You may use, distribute, or modify this code under terms and conditions of the Code of Student Behavior at University of Alberta.
+ * You can find a copy of the license in this project. Otherwise please contact spei@ualberta.ca
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -24,7 +30,25 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * This class is the main view class in lonelyTweeter class.
+ * It deals with user inputs, saves/loads them in/form the File_Name (file.sav).
+ * @author spei
+ *
+ * @since 1.0
+ * @see NormalTweet
+ * @see java.io.BufferedReader
+ * @see Tweet
+ */
 public class LonelyTwitterActivity extends Activity {
+
+    /**
+     * This is the name of the file that is saved in your virtual device.
+     * you can access it through Android Device Monitor by selecting your app.
+     * then data -> data -> file.sav
+     * @see NormalTweet
+     * @author spei
+     */
 
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
@@ -98,6 +122,11 @@ public class LonelyTwitterActivity extends Activity {
 		});
 	}
 
+    /**
+     * Sets up the adapter and refreshes the list whenever the activity is loaded.
+     * @see android.widget.ArrayAdapter
+     */
+
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -109,6 +138,11 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+    /**
+     * This mathod loads the json file, generates the tweets from its contents.
+     * @throws RuntimeException
+     * @exception FileNotFoundException
+     */
 	private void loadFromFile() {
 
 		try {
@@ -131,6 +165,11 @@ public class LonelyTwitterActivity extends Activity {
 		}
 
 	}
+
+
+    /**
+     * Saves tweetList into FILENAME, using Gson
+     */
 	
 	private void saveInFile() {
 		try {
