@@ -16,6 +16,9 @@ import io.searchbox.core.Search;
 import io.searchbox.core.SearchResult;
 import android.util.Log;
 
+import static android.R.attr.text;
+import static android.R.id.message;
+
 /**
  * Created by romansky on 10/20/16.
  */
@@ -61,7 +64,13 @@ public class ElasticsearchTweetController {
 
                 // TODO Build the query
 
-            Search search = new Search.Builder(search_parameters[0]).addIndex("testing").addType("tweet").build();
+            String query = "{\n" + " \"query\": { \"term\": {\"message\":\"" + text + "\"} }\n" + "}";
+            String resultQuery = String.format(query,search_parameters);
+            Search search = new Search.Builder(resultQuery).addIndex("testing").addType("tweet").build();
+
+
+
+            //Search search = new Search.Builder(search_parameters[0]).addIndex("testing").addType("tweet").build();
             try {
                // TODO get the results of the query
                 SearchResult result = client.execute(search);
